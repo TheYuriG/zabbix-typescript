@@ -1,4 +1,4 @@
-import { getHosts } from "./mod/mod.ts";
+import { getHosts, getMacros } from "./mod/mod.ts";
 
 const hosts = await getHosts({
   // countOutput: true,
@@ -7,3 +7,9 @@ const hosts = await getHosts({
   selectParentTemplates: ["templateid", "name"],
 });
 console.log(hosts);
+
+const macros = await getMacros({
+  editable: true,
+  output: ["hostmacroid", "macro", "value"],
+});
+console.log(macros);
