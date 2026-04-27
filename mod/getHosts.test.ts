@@ -1,7 +1,8 @@
 import { equal } from "@std/assert";
 import { getHosts } from "./getHosts.ts";
+import type { GetHostsParams } from "../interfaces/GetHostsParams.ts";
 
-const hostParamCases = [
+const hostParamCases: Array<{ name: string; params: GetHostsParams }> = [
   { name: "groupids", params: { groupids: ["10"] } },
   { name: "dserviceids", params: { dserviceids: ["20"] } },
   { name: "graphids", params: { graphids: ["30"] } },
@@ -109,7 +110,7 @@ for (const { name, params } of hostParamCases) {
   Deno.test({
     name: `getHosts returns data for ${name}`,
     fn: async () => {
-      const result = await getHosts(params as any);
+      const result = await getHosts(params);
       equal(typeof result, "object");
       equal(
         Array.isArray(result?.result),
