@@ -1,3 +1,19 @@
+## Welcome
+
+A W.I.P. set of utility tools to manage Zabbix data. I've created this because
+the [other](https://github.com/StarryShark/deno-zabbix)
+[tools](https://github.com/aluisiora/zabbix-typescript-client) either assumed
+you knew the request paths and/or had
+[no type-safety](https://github.com/leroylim/typescript-zabbix-utils).
+
+## Contributing
+
+The API surface for Zabbix is huge, so any contributions are welcome. I'm not
+demanding at all with PRs as long as you write the tests for them. Priority #1
+is to cover as much of the API surface as possible, then next priority would be
+to start thinking about optimizing and linting the with a consistent ruleset
+repository.
+
 ### How to use
 
 Everything here was made using Deno and assumes you would be using it as well.
