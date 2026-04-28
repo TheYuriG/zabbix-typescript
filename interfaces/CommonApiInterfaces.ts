@@ -13,7 +13,7 @@ export interface CommonApiParams {
   /** Limit the number of records returned. */
   limit?: number;
   /** Object properties to be returned. Note that the object ID (i.e., hostid, itemid, etc.) is always included in the response, even if it is not specified in the output parameter. Default: extend. */
-  output?: any;
+  output?: Array<string>;
   /** Use IDs as keys in the resulting array. */
   preservekeys?: boolean;
   /** Return results that match the given pattern (case-insensitive). Accepts an object, where the keys are property names (e.g., Host object properties in host.get, Item object properties in item.get, etc.), and the values are strings to search for. If no additional options are given, this will perform a LIKE "%…%" search. Supports only properties of string and text data type. Note that some methods have specific functionality for this parameter, which is described on the method page (e.g., the search parameter in host.get also supports Host interface properties). */
@@ -23,9 +23,9 @@ export interface CommonApiParams {
   /** If set to true, enables the use of "*" as a wildcard character in the search parameter. Default: false. */
   searchWildcardsEnabled?: boolean;
   /** Sort the result by the given properties. Refer to a specific API get method description for a list of properties that can be used for sorting. Macros are not expanded before sorting. If no value is specified, data will be returned unsorted. */
-  sortfield?: string | string[];
+  sortfield?: Array<string> | string;
   /** Order of sorting. If an array is passed, each value will be matched to the corresponding property given in the sortfield parameter. Possible values: ASC - (default) ascending; DESC - descending. */
-  sortorder?: string | string[];
+  sortorder?: Array<string> | string;
   /** The search parameter will compare the beginning of fields, that is, perform a LIKE "…%" search instead. Ignored if searchWildcardsEnabled is set to true. */
   startSearch?: boolean;
 }
