@@ -1,5 +1,6 @@
 import { CommonApiParams } from "../interfaces/CommonApiInterfaces.ts";
-import { HostInterface } from "../interfaces/HostInterfaces.ts";
+import { Host } from "../interfaces/Host.ts";
+import { HostInterface } from "../interfaces/HostInterface.ts";
 
 /**
  * Retrieves hosts from the Zabbix API based on the provided parameters.
@@ -34,49 +35,9 @@ export async function getHosts(
   return hosts;
 }
 
-interface GetHostsHostInterface {
-  interfaceid?: string;
-  ip?: string;
-  dns?: string;
-  useip?: string;
-}
-
-interface GetHostsHost {
-  hostid: string;
-  proxyid?: string;
-  host?: string;
-  status?: string;
-  ipmi_authtype?: string;
-  ipmi_privilege?: string;
-  ipmi_username?: string;
-  ipmi_password?: string;
-  maintenanceid?: string;
-  maintenance_status?: string;
-  maintenance_type?: string;
-  maintenance_from?: string;
-  name?: string;
-  flags?: string;
-  templateid?: string;
-  description?: string;
-  tls_connect?: string;
-  tls_accept?: string;
-  tls_issuer?: string;
-  tls_subject?: string;
-  custom_interfaces?: string;
-  uuid?: string;
-  vendor_name?: string;
-  vendor_version?: string;
-  proxy_groupid?: string;
-  monitored_by?: string;
-  inventory_mode?: string;
-  active_available?: string;
-  assigned_proxyid?: string;
-  interfaces?: GetHostsHostInterface[];
-}
-
 interface GetHostsResponse {
   jsonrpc: "2.0";
-  result: GetHostsHost[] | number;
+  result: Host[] | number;
   id: number;
 }
 
