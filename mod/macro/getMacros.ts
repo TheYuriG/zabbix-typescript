@@ -1,4 +1,4 @@
-import { CommonApiParams } from "../interfaces/CommonApiInterfaces.ts";
+import { CommonApiParams } from "../../interfaces/CommonApiInterfaces.ts";
 
 export async function getMacros(
   params: GetMacrosParams,

@@ -1,4 +1,4 @@
-import { getHosts } from "./getHosts.ts";
-import { getMacros } from "./getMacros.ts";
+import { getHosts } from "./host/getHosts.ts";
+import { getMacros } from "./macro/getMacros.ts";
 
 export { getHosts, getMacros };

@@ -1,6 +1,5 @@
 import { equal } from "@std/assert";
-import { getMacros } from "./getMacros.ts";
-import type { GetMacrosParams } from "../interfaces/GetMacrosParams.ts";
+import { getMacros, GetMacrosParams } from "./getMacros.ts";
 
 const macroParamCases: Array<{ name: string; params: GetMacrosParams }> = [
   { name: "globalmacro", params: { globalmacro: true } },

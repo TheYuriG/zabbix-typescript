@@ -1,6 +1,5 @@
 import { equal } from "@std/assert";
-import { getHosts } from "./getHosts.ts";
-import type { GetHostsParams } from "../interfaces/GetHostsParams.ts";
+import { getHosts, GetHostsParams } from "./getHosts.ts";
 
 const hostParamCases: Array<{ name: string; params: GetHostsParams }> = [
   { name: "groupids", params: { groupids: ["10"] } },

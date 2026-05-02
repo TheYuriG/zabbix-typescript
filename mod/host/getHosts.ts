@@ -1,6 +1,6 @@
-import { CommonApiParams } from "../interfaces/CommonApiInterfaces.ts";
-import { Host } from "../interfaces/Host.ts";
-import { HostInterface } from "../interfaces/HostInterface.ts";
+import { CommonApiParams } from "../../interfaces/CommonApiInterfaces.ts";
+import { Host } from "../../interfaces/host/Host.ts";
+import { HostInterface } from "../../interfaces/host/HostInterface.ts";
 
 /**
  * Retrieves hosts from the Zabbix API based on the provided parameters.
