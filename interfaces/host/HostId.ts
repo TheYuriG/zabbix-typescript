@@ -1,0 +1,1 @@
+export type HostId = `${number | ""}${number | ""}${number}${number}${number}${number}${number}`
