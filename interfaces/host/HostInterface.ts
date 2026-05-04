@@ -118,7 +118,7 @@ export interface HostInterface {
    * - constant
    * - required for create operations
    */
-  hostid: string;
+  hostid?: string;
 
   /**
    * Interface type.
