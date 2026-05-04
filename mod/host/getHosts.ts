@@ -1,6 +1,7 @@
 import { CommonApiParams } from "../../interfaces/CommonApiInterfaces.ts";
 import { Host } from "../../interfaces/host/Host.ts";
 import { HostInterface } from "../../interfaces/host/HostInterface.ts";
+import { HostInventory } from "../../interfaces/host/HostInventory.ts";
 
 /**
  * Retrieves hosts from the Zabbix API based on the provided parameters.
@@ -120,7 +121,7 @@ export interface GetHostsParams extends CommonApiParams {
   /** Return an interfaces property with host interfaces. */
   selectInterfaces?: Array<keyof HostInterface>;
   /** Return an inventory property with host inventory data. */
-  selectInventory?: Array<string>;
+  selectInventory?: Array<keyof HostInventory>;
   /** Return an items property with host items. Supports count. */
   selectItems?: Array<string>;
   /** Return a macros property with host macros. */
