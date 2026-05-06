@@ -10,7 +10,7 @@ import { HostInventory } from "../../interfaces/host/HostInventory.ts";
  */
 export async function getHosts(
   params: GetHostsParams,
-): Promise<GetHostsResponse> {
+): Promise<Array<Host> | number> {
   const request = await fetch(`${Deno.env.get("ZABBIX_URL")}/api_jsonrpc.php`, {
     method: "POST",
     headers: {
@@ -31,9 +31,9 @@ export async function getHosts(
     );
   }
 
-  const hosts = await request.json();
+  const hosts: GetHostsResponse = await request.json();
 
-  return hosts;
+  return hosts.result;
 }
 
 interface GetHostsResponse {
