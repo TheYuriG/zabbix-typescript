@@ -48,7 +48,7 @@ const hostParamCases: Array<{ name: string; params: GetHostsParams }> = [
     name: "selectInterfaces",
     params: { selectInterfaces: ["interfaceid", "ip"] },
   },
-  { name: "selectInventory", params: { selectInventory: ["inventory_mode"] } },
+  { name: "selectInventory", params: { selectInventory: ["location"] } },
   { name: "selectItems", params: { selectItems: ["itemid"] } },
   { name: "selectMacros", params: { selectMacros: ["macro"] } },
   {
