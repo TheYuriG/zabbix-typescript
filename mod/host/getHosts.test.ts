@@ -139,29 +139,28 @@ for (const { name, params } of hostParamCases) {
     name: `getHosts returns data for ${name}`,
     fn: async () => {
       const hosts = await getHosts(params);
-      assert(typeof hosts === "object", "Expected response to be an object");
       if (params.countOutput !== undefined) {
         assert(
-          typeof hosts?.result === "string",
+          typeof hosts === "string",
           "Expected countOutput parameter to be true and return a string as result",
         );
       } else {
         assert(
-          typeof hosts?.result === "object",
+          typeof hosts === "object",
           "Expected result object or array in response",
         );
         if (params.preservekeys === true) {
           assert(
-            !Array.isArray(hosts?.result),
+            !Array.isArray(hosts),
             "Expected result object in response when preservekeys is true",
           );
         } else {
           assert(
-            Array.isArray(hosts?.result),
+            Array.isArray(hosts),
             "Expected result array in response",
           );
           assert(
-            (hosts.result as Array<unknown>).length >= 0,
+            (hosts as Array<unknown>).length >= 0,
             "Expected result array to be present",
           );
         }
