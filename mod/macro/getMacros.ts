@@ -1,7 +1,7 @@
 import { CommonApiParams } from "../../interfaces/CommonApiInterfaces.ts";
 
 export async function getMacros(
-  params: GetMacrosParams,
+  lookupParameters: GetMacrosParams,
 ): Promise<GetMacrosResponse> {
   const request = await fetch(`${Deno.env.get("ZABBIX_URL")}/api_jsonrpc.php`, {
     method: "POST",
@@ -12,7 +12,7 @@ export async function getMacros(
     body: JSON.stringify({
       jsonrpc: "2.0",
       method: "usermacro.get",
-      params,
+      params: lookupParameters,
       id: 2,
     }),
   });
