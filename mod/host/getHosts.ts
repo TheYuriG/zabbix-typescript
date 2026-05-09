@@ -164,7 +164,7 @@ export interface GetHostsParams extends CommonApiParams {
   /** Limits the number of records returned by subselects. Applies to the following subselects: selectParentTemplates - results will be sorted by host; selectInterfaces; selectItems - sorted by name; selectDiscoveryRules - sorted by name; selectTriggers - sorted by description; selectGraphs - sorted by name; selectDashboards - sorted by name. */
   limitSelects?: number;
   /** Return hosts that have inventory data that match the given pattern (case-insensitive). Accepts an object, where the keys are property names, and the values are strings to search for. If no additional options are given, this will perform a LIKE "%…%" search. Supports only properties of string and text data type. */
-  searchInventory?: object;
+  searchInventory?: Partial<Record<keyof HostInventory, string>>;
   /** Return a discoveries property with host low-level discovery rules. Supports count. This query is deprecated, please use selectDiscoveryRules instead. */
   selectDiscoveries?: Array<string>;
   /** Return a hostDiscovery property with host discovery object data. This query is deprecated, please use selectDiscoveryData instead. */
