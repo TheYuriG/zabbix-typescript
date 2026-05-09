@@ -11,7 +11,10 @@ import { GlobalMacro } from "../../interfaces/macro/GlobalMacro.ts";
  * @returns {Promise<Array<HostMacro>>} - Array of host macros.
  */
 export async function getMacros(
-  lookupParameters: GetMacrosParams & { globalmacro?: false; countOutput?: false },
+  lookupParameters: GetMacrosParams & {
+    globalmacro?: false;
+    countOutput?: false;
+  },
 ): Promise<Array<HostMacro>>;
 
 /**
@@ -23,7 +26,10 @@ export async function getMacros(
  * @returns {Promise<Array<GlobalMacro>>} - Array of global macros.
  */
 export async function getMacros(
-  lookupParameters: GetMacrosParams & { globalmacro: true; countOutput?: false },
+  lookupParameters: GetMacrosParams & {
+    globalmacro: true;
+    countOutput?: false;
+  },
 ): Promise<Array<GlobalMacro>>;
 
 /**
@@ -41,7 +47,7 @@ export async function getMacros(
  * Core implementation for retrieving macros based on parameters.
  *
  * @param {GetMacrosParams} lookupParameters - Parameters for retrieving macros.
- * @returns {Promise<Array<GlobalMacro> | Array<HostMacro> | number>} - 
+ * @returns {Promise<Array<GlobalMacro> | Array<HostMacro> | number>} -
  *  - When `countOutput` is `true`, resolves to the number of matching macros.
  *  - When `globalmacro` is `true`, resolves to an array of global macros.
  *  - When `globalmacro` is `false` or omitted, resolves to an array of host macros.
