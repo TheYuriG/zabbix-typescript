@@ -4,10 +4,29 @@ import { HostInterface } from "../../interfaces/host/HostInterface.ts";
 import { HostInventory } from "../../interfaces/host/HostInventory.ts";
 
 /**
- * Retrieves hosts from the Zabbix API based on the provided parameters.
+ * Retrieves an array of hosts from the Zabbix API based on the provided parameters.
+ * When `countOutput` is omitted or `false`, retrieves an array of hosts.
+ *
+ * @param {boolean} [params.countOutput=false] - Optional; set to `false` or omit.
  * @param {GetHostsParams} params - The parameters to filter and select hosts.
- * @returns {Promise<GetHostsResponse>} The response from the Zabbix API containing the hosts.
+ * @returns {Promise<Array<Host>>} - An array of hosts matching the criteria.
  */
+export async function getHosts(
+  params: GetHostsParams & { countOutput?: false },
+): Promise<Array<Host>>;
+
+/**
+ * Retrieves the number of hosts from the Zabbix API based on the provided parameters.
+ * When `countOutput` is `true`, retrieves the number of hosts matching the criteria.
+ *
+ * @param {object} params - Parameters to retrieve hosts.
+ * @param {boolean} [params.countOutput=true] - Set to `true` to get the count of matching hosts.
+ * @returns {Promise<number>} - The number of hosts matching the criteria.
+ */
+export async function getHosts(
+  params: GetHostsParams & { countOutput: true },
+): Promise<number>;
+
 export async function getHosts(
   params: GetHostsParams,
 ): Promise<Array<Host> | number> {
@@ -33,7 +52,11 @@ export async function getHosts(
 
   const hosts: GetHostsResponse = await request.json();
 
-  return hosts.result;
+  if (params.countOutput === true) {
+    return hosts.result as number;
+  }
+
+  return hosts.result as Array<Host>;
 }
 
 interface GetHostsResponse {
