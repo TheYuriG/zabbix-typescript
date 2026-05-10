@@ -1,3 +1,1 @@
-export type HostId = `${number | ""}${
-  | number
-  | ""}${number}${number}${number}${number}${number}`;
+export type HostId = `${number}`;
