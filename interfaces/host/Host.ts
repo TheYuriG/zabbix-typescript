@@ -1,3 +1,4 @@
+import { HostId } from "./HostId.ts";
 import { HostInterface } from "./HostInterface.ts";
 import { HostInventory } from "./HostInventory.ts";
 
@@ -7,11 +8,11 @@ import { HostInventory } from "./HostInventory.ts";
  */
 export interface Host {
   /**
-   * ID of the host.
+   * ID of the host. Required for update and delete operations.
    * @readonly
    * @type {string}
    */
-  readonly hostid?: string;
+  readonly hostid?: HostId;
 
   /**
    * ID of the proxy that is used to monitor the host.
