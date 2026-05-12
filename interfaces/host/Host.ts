@@ -64,7 +64,7 @@ export interface Host {
    * @property {number} OEM - 5: OEM
    * @property {number} RMCP_PLUS - 6: RMCP+
    */
-  ipmi_authtype?: number;
+  ipmi_authtype?: -1 | 0 | 1 | 2 | 4 | 5 | 6;
 
   /**
    * IPMI password.
