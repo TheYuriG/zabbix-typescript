@@ -71,26 +71,26 @@ for (const { name, params } of macroParamCases) {
       assert(typeof macros === "object", "Expected response to be an object");
       if (params.countOutput !== undefined) {
         assert(
-          typeof macros?.result === "string",
+          typeof macros === "string",
           "Expected countOutput parameter to be true and return a string as result",
         );
       } else {
         assert(
-          typeof macros?.result === "object",
+          typeof macros === "object",
           "Expected result object or array in response",
         );
         if (params.preservekeys === true) {
           assert(
-            !Array.isArray(macros?.result),
+            !Array.isArray(macros),
             "Expected result object in response when preservekeys is true",
           );
         } else {
           assert(
-            Array.isArray(macros?.result),
+            Array.isArray(macros),
             "Expected result array in response",
           );
           assert(
-            (macros.result as Array<unknown>).length >= 0,
+            (macros as Array<unknown>).length >= 0,
             "Expected result array to be present",
           );
         }
