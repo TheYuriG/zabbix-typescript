@@ -1,6 +1,7 @@
-import { getHosts } from "./host/getHosts.ts";
-import { deleteHosts } from "./host/deleteHost.ts";
 import { createHost } from "./host/createHost.ts";
+import { getHosts } from "./host/getHosts.ts";
+import { updateHost } from "./host/updateHost.ts";
+import { deleteHosts } from "./host/deleteHost.ts";
 import { getMacros } from "./macro/getMacros.ts";
 
-export { createHost, deleteHosts, getHosts, getMacros };
+export { createHost, getHosts, updateHost, deleteHosts, getMacros };
